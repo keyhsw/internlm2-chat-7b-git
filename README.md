@@ -5,30 +5,28 @@
 
 本文档将手把手教您如何在 OpenXLab 部署一个 InternLM2-7B chat 的应用。
 
-- [1. 相关资料介绍](#1-%E8%B5%84%E6%96%99%E4%BB%8B%E7%BB%8D)
-  - [1.1 书生·浦语 InternLM介绍](#11-%E4%B9%A6%E7%94%9F%C2%B7%E6%B5%A6%E8%AF%AD-InternLM%E4%BB%8B%E7%BB%8D)
-  - [1.2 OpenXLab·浦源平台介绍](#12-OpenXLab%C2%B7%E6%B5%A6%E6%BA%90%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D)
-- [2. 部署 InternLM2-Chat-7B demo](#2-%E9%83%A8%E7%BD%B2-InternLM2-Chat-7B-demo)
+- [1. 相关资料介绍](#1-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99%E4%BB%8B%E7%BB%8D)
+  - [1.1 书生·浦语 InternLM介绍](#11-%E4%B9%A6%E7%94%9F%E6%B5%A6%E8%AF%AD-internlm%E4%BB%8B%E7%BB%8D)
+  - [1.2 OpenXLab·浦源平台介绍](#12-openxlab%E6%B5%A6%E6%BA%90%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D)
+- [2. 部署 InternLM2-Chat-7B demo](#2-%E9%83%A8%E7%BD%B2-internlm2-chat-7b-demo)
   - [2.1 模型准备](#21-%E6%A8%A1%E5%9E%8B%E5%87%86%E5%A4%87)
   - [2.2 上传模型](#22-%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B)
-    - [2.2.1 初始化 Git 配置](#221-%E5%88%9D%E5%A7%8B%E5%8C%96-Git-%E9%85%8D%E7%BD%AE)
-    - [2.2.2 拉取模型仓库](#222-%E6%8B%96%E5%8F%96%E6%A8%A1%E5%9E%8B%E4%BB%93%E5%BA%93)
-    - [2.2.3 获取 Git Access Token](#223-%E8%8E%B7%E5%8F%96-Git-Access-Token)
+    - [2.2.1 初始化 Git 配置](#221-%E5%88%9D%E5%A7%8B%E5%8C%96-git-%E9%85%8D%E7%BD%AE)
+    - [2.2.2 拉取模型仓库](#222-%E6%8B%89%E5%8F%96%E6%A8%A1%E5%9E%8B%E4%BB%93%E5%BA%93)
+    - [2.2.3 获取 Git Access Token](#223-%E8%8E%B7%E5%8F%96-git-access-token)
     - [2.2.4 上传模型文件](#224-%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B%E6%96%87%E4%BB%B6)
   - [2.3 编写代码](#23-%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81)
     - [2.3.1 初始化项目结构](#231-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84)
     - [2.3.2 应用环境配置](#232-%E5%BA%94%E7%94%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE)
-    - [2.3.3 编写 Gradio 应用代码](#233-%E7%BC%96%E5%86%99-Gradio-%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81)
-    - [2.3.4 推送代码至 GitHub](#234-%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E5%8C%BA%E5%88%B0-GitHub)
+    - [2.3.3 编写 Gradio 应用代码](#233-%E7%BC%96%E5%86%99-gradio-%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81)
+    - [2.3.4 推送代码至 GitHub](#234-%E6%8E%A8%E9%80%81%E4%BB%A3%E7%A0%81%E8%87%B3-github)
   - [2.4 部署应用](#24-%E9%83%A8%E7%BD%B2%E5%BA%94%E7%94%A8)
     - [2.4.1 创建入口](#241-%E5%88%9B%E5%BB%BA%E5%85%A5%E5%8F%A3)
     - [2.4.2 应用配置](#242-%E5%BA%94%E7%94%A8%E9%85%8D%E7%BD%AE)
-    - [2.4.3 应用构建和启动](#243-%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%82%E5%8A%A8)
+    - [2.4.3 应用构建和启动](#243-%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E5%92%8C%E5%90%AF%E5%8A%A8)
     - [2.4.4 应用公开](#244-%E5%BA%94%E7%94%A8%E5%85%AC%E5%BC%80)
-- [Reference](#Reference)
 
-
-
+&nbsp; 
 ## 1. 相关资料介绍
 
 ### 1.1 书生·浦语 InternLM介绍
@@ -38,7 +36,7 @@
 ![InternLM](./image/Internlm_intro.png)
 
 
-
+&nbsp; 
 ### 1.2 OpenXLab·浦源平台介绍
 
 [OpenXLab](https://openxlab.org.cn/home) 浦源平台以开源为核心，旨在构建开源开放的人工智能生态，促进学术成果的开放共享。OpenXLab面向 AI 研究员和开发者提供 AI 领域的一站式服务平台，包含数据集中心、模型中心和应用中心，致力于推动人工智能对产学研各领域全面赋能，为构建人工智能开放生态，推动人工智能科研与技术突破、交叉创新和产业落地提供全方位的平台支撑。
@@ -48,7 +46,8 @@
 
 
 
-
+&nbsp; 
+&nbsp; 
 ## 2. 部署 InternLM2-Chat-7B demo 
 
 本小节主要介绍如何在 OpenXLab 上部署一个 internLM2-Chat 的应用，具体步骤如下：
@@ -78,7 +77,7 @@
 > 2. 如需获取 InternLM2其他模型，可查看 GitHub 的 [Model Zoo 文档](https://github.com/InternLM/InternLM/blob/main/README_zh-CN.md#model-zoo)
 
 
-
+&nbsp; 
 ### 2.2 上传模型
 
 > 若 OpenXLab 模型中心已托管你所需要的模型，可跳过模型上传的步骤
@@ -115,7 +114,7 @@ git instll lfs
 ```
 
 
-
+&nbsp; 
 设置您的 Git 用户名，OpenXLab 使用您在平台的用户名作为 Git的用户名，具体获取路径，可登录 OpenXLab 后，点击个人头像下的 【账号与安全】查看个人的用户名
 
 ![upload_model_step1](./image/upload_model_step1.png)
@@ -131,7 +130,7 @@ git config --global user.name "Username"
 > 需要将 Username 替换成你在OpenXL平台上的用户名
 
 
-
+&nbsp; 
 #### 2.2.2 拉取模型仓库
 
 首先需要在 OpenXLab 先创建一个空仓库，填写模型仓库的基本信息，包括仓库名称、任务类型、访问权限等。
@@ -151,7 +150,7 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 > 需要将其中的 username 和 reponame 换成在模型中心中个人的 用户名 和 模型仓库的名称，例如 https://code.openxlab.org.cn/houshaowei/internlm-chat-7b.git
 
 
-
+&nbsp; 
 #### 2.2.3 获取 Git Access Token
 
 在 OpenXLab 的密钥管理添加 Git 令牌，步骤如下
@@ -173,7 +172,7 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 ![img](./image/upload_model_step9.png)
 
 
-
+&nbsp; 
 #### 2.2.4 上传模型文件
 
 在克隆的仓库目录中整理模型文件，即将你的模型文件放入至clone的目录中，并执行git push命令将模型推送至远程仓库
@@ -204,7 +203,7 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 ```
 
 
-
+&nbsp; 
 在执行 `git push` 之前，如果您的仓库中包含大型文件，并且您希望使用 Git LFS 来管理这些文件，您需要先标记这些文件以便 Git LFS 能够识别它们。这通常是通过使用 `git lfs track` 命令来标记。以下是使用 `git lfs track` 命令的基本步骤：
 
 **跟踪文件**：使用 `git lfs track` 命令来标记你希望通过 Git LFS 管理的文件。例如，您想要跟踪所有的 `.bin`和` .model`的模型文件，可以使用以下命令：
@@ -215,7 +214,7 @@ git lfs track "*.model"
 ```
 
 
-
+&nbsp; 
 标记LFS管理的文件后，提交更新的信息，执行 git push 上传模型，命令如下所示：
 
 ```shell
@@ -237,13 +236,13 @@ git push
 上传后的模型仓库可参考：https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b
 
 
-
+&nbsp; 
 **其他身份验证方式**
 
 平台也提供SSH密钥方式身份验证，本小节不再赘述，如想了解 SSH 密钥身份验证可参考：https://openxlab.org.cn/docs/models/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B.html#%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B%E6%96%87%E4%BB%B6
 
 
-
+&nbsp; 
 ### 2.3 编写代码
 
 本小节为编写 chat 的 web-ui 代码，主要包括项目结构初始化、应用环境配置和 gradio 应用代码的编写
@@ -266,7 +265,7 @@ git push
 > 本文的示例代码仓库： https://github.com/keyhsw/internlm2-chat-7b-git
 
 
-
+&nbsp; 
 #### 2.3.2 应用环境配置
 
 **依赖管理**：配置应用所需的运行环境,如有 Python 依赖项（ pip 安装）可写入 requirements.txt 中，Debian 依赖项（ apt-get 安装）可写入 packages.txt 中，并存放至代码仓库的根目录下。
@@ -297,7 +296,7 @@ git-lfs
 > ```
 
 
-
+&nbsp; 
 #### 2.3.3 编写 gradio 应用代码
 
 编写一个app.py文件，里面可以通过transformers框架进行模型实例化并通过gradio组件搭建chat聊天界面，本次代码都存放在 GitHub示例代码仓库中，如需查看详细代码编写，可浏览 https://github.com/keyhsw/internlm2-chat-7b-git
@@ -327,7 +326,7 @@ InternLM is mainly developed by Shanghai AI Laboratory.
                  """,
                  ).queue(1).launch()
 ```
-
+&nbsp; 
 > **应用代码注意事项** ：在 `app.py` 文件中，如需下载模型和了解文件存放路径
 >
 > 1. **工作目录**：OpenXLab 应用代码默认存储的位置为 **`/home/xlab-app-center`**，如需指定存储路径，可用相对路径“./”表示，本示例采用相对路径方式
@@ -342,7 +341,7 @@ InternLM is mainly developed by Shanghai AI Laboratory.
 > ```
 
 
-
+&nbsp; 
 #### 2.3.4 推送代码至 GitHub
 
 编写完应用代码，记得推动您的应用代码至 GitHub 仓库中，推送本地代码至 GitHub 的命令如下：
@@ -355,7 +354,7 @@ git push
 ```
 
 
-
+&nbsp; 
 ### 2.4 部署应用
 
 本小节为在OpenXLab浦源平台中，部署写好的 chat web-ui 的应用，具体步骤如下。
@@ -373,7 +372,7 @@ git push
 ![create_step_2](./image/create_step_2.png)
 
 
-
+&nbsp; 
 #### 2.4.2 应用配置
 
 填写 Chat 应用的基础信息，包括应用的名称和应用对应的任务类型，并填入 GitHub 仓库的地址，选择硬件资源后，即可立即创建啦~
@@ -381,7 +380,7 @@ git push
 ![create_step_3](./image/create_step_3.png)
 
 
-
+&nbsp; 
 **应用配置注意事项**
 
 1. **GitHub 授权**：若未进行 GitHub 授权,请先前往授权
@@ -394,7 +393,7 @@ git push
 5. **环境变量配置**：若您有不方便在代码中暴露的变量信息,可通过高级配置中的环境变量进行配置 
 
 
-
+&nbsp; 
 #### 2.4.3 应用构建和启动
 
 查看日志，调试应用代码，若应用代码无问题，运行成功，可体验应用，并将应用进行公开
@@ -404,7 +403,7 @@ git push
 > 构建应用过程中，可以尽量去完善应用的信息，包括应用封面、中文别称、关联论文和关联模型等信息，有利于后续的平台的推荐~
 
 
-
+&nbsp; 
 构建过程中，可查看应用的构建日志，及时查看应用的构建进度和启动情况
 
 ![create_step_5](./image/create_step_5.png)
@@ -414,7 +413,7 @@ git push
 > 由于平台资源有限，可能会因为没有资源启动而进入排队中，请耐心等候
 
 
-
+&nbsp; 
 #### 2.4.4 应用公开
 
 应用成功运行后，可以进行测试应用是否能跑通，跑通后可以将应用进行公开，让更多人可以看到您的应用哦~
@@ -424,9 +423,9 @@ git push
 internlm2-7B-chat-demo应用体验地址：https://openxlab.org.cn/apps/detail/houshaowei/InternLM2-Chat-7B-demo
 
 
-
+&nbsp; 
+<br/>
 **Reference**
-
 * OpenXLab 平台介绍 ：https://openxlab.org.cn/docs/intro.html
 * OpenXLab Gradio 应用教程：https://openxlab.org.cn/docs/apps/Gradio%E5%BA%94%E7%94%A8.html
 * OpenXLab 上传模型教程：https://openxlab.org.cn/docs/models/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B.html
