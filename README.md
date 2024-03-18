@@ -329,6 +329,7 @@ InternLM is mainly developed by Shanghai AI Laboratory.
 编写完应用代码，记得推动您的应用代码至 GitHub 仓库中，推送本地代码至 GitHub 的命令如下：
 
 ```shell
+cd internlm2-chat-7b-git
 git add -A
 git commit -m "add app.py requirements.txt packages.txt"
 git push
