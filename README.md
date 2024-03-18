@@ -5,9 +5,9 @@
 
 本文档将手把手教您如何在 OpenXLab 部署一个 InternLM2-7B chat 的应用。
 
-- [1. 相关资料介绍](#1. 相关资料介绍)
-  - [1.1 书生·浦语 InternLM介绍](#1.1 书生·浦语 InternLM介绍)
-  - [1.2 OpenXLab·浦源平台介绍](#1.2 OpenXLab·浦源平台介绍)
+- [1. 相关资料介绍](#1-%E8%B5%84%E6%96%99%E4%BB%8B%E7%BB%8D)
+  - [1.1 书生·浦语 InternLM介绍](#11-%E4%B9%A6%E7%94%9F%C2%B7%E6%B5%A6%E8%AF%AD-InternLM%E4%BB%8B%E7%BB%8D)
+  - [1.2 OpenXLab·浦源平台介绍](#12-OpenXLab%C2%B7%E6%B5%A6%E6%BA%90%E5%B9%B3%E5%8F%B0%E4%BB%8B%E7%BB%8D)
 - [2. 部署 InternLM2-Chat-7B demo](#2-%E9%83%A8%E7%BD%B2-InternLM2-Chat-7B-demo)
   - [2.1 模型准备](#21-%E6%A8%A1%E5%9E%8B%E5%87%86%E5%A4%87)
   - [2.2 上传模型](#22-%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B)
@@ -25,7 +25,7 @@
     - [2.4.2 应用配置](#242-%E5%BA%94%E7%94%A8%E9%85%8D%E7%BD%AE)
     - [2.4.3 应用构建和启动](#243-%E5%BA%94%E7%94%A8%E6%9E%84%E5%BB%BA%E5%92%8C%E5%8F%82%E5%8A%A8)
     - [2.4.4 应用公开](#244-%E5%BA%94%E7%94%A8%E5%85%AC%E5%BC%80)
-- [Reference](#reference)
+- [Reference](#Reference)
 
 
 
