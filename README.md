@@ -1,14 +1,9 @@
 ![coverpage](./image/title.png)
 
 
-
 # OpenXLab 部署 InternLM2-7B 实践指南
 
 本文档将手把手教您如何在 OpenXLab 部署一个 InternLM2-7B chat 的应用。
-
-[TOC]
-
-
 
 ## 1. 相关资料介绍
 
