@@ -11,7 +11,7 @@
 
 [InternLM](https://github.com/InternLM/InternLM) 是在过万亿 token 数据上训练的多语千亿参数基座模型。通过多阶段的渐进式训练，InternLM 基座模型具有较高的知识水平，在中英文阅读理解、推理任务等需要较强思维能力的场景下性能优秀，在多种面向人类设计的综合性考试中表现突出。浦语全链条开源开放体系如下：
 
-![InternLM](C:\Users\houshaowei\Desktop\internlm2-chat-7b-git\image\internlm_intro.png)
+![InternLM](./image/Internlm_intro.png)
 
 
 
@@ -19,7 +19,7 @@
 
 [OpenXLab](https://openxlab.org.cn/home) 浦源平台以开源为核心，旨在构建开源开放的人工智能生态，促进学术成果的开放共享。OpenXLab面向 AI 研究员和开发者提供 AI 领域的一站式服务平台，包含数据集中心、模型中心和应用中心，致力于推动人工智能对产学研各领域全面赋能，为构建人工智能开放生态，推动人工智能科研与技术突破、交叉创新和产业落地提供全方位的平台支撑。
 
-![OpenXLab](C:\Users\houshaowei\Desktop\internlm2-chat-7b-git\image\openxlab_intro.png)
+![OpenXLab](./image/openxlab_intro.png)
 
 
 
@@ -29,7 +29,7 @@
 
 本小节主要介绍如何在 OpenXLab 上部署一个 internLM2-Chat 的应用，具体步骤如下：
 
-![Deploy_step](C:\Users\houshaowei\Desktop\internlm2-chat-7b-git\image\deploy-step.png)
+![Deploy_step](./image/deploy-step.png)
 
 > 本次部署工作使用的三个平台，可查看如下链接了解详情：
 >
@@ -146,7 +146,7 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 
 在执行 git clone 时会弹出身份验证的弹窗，填入 Username 和 Token 信息，如图所示
 
-![img](C:\Users\houshaowei\Desktop\internlm2-chat-7b-git\image\upload_model_step9.png)
+![img](./image/upload_model_step9.png)
 
 
 
