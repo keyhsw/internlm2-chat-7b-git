@@ -1,7 +1,7 @@
 ![coverpage](./image/title.png)
 
 
-# OpenXLab 部署 InternLM2-7B 实践指南
+# OpenXLab 部署 InternLM2 实践指南
 
 本文档将手把手教您如何在 OpenXLab 部署一个 InternLM2-7B chat 的应用。
 
@@ -95,6 +95,11 @@
 1. 访问Git官方网站下载页面：[Git - Downloads](https://git-scm.com/downloads)
 2. 点击“Windows”下载Git安装程序。
 3. 运行下载的安装程序并按照向导指示完成安装。
+4. 安装 lfs。
+```shell
+# use git install lfs
+git lfs install
+```
 
 **Linux:** 
 
@@ -110,25 +115,30 @@ sudo apt-get update
 sudo apt-get install git-lfs
 
 # use git install lfs
-git instll lfs
+git lfs install
 ```
 
 
 &nbsp; 
-设置您的 Git 用户名，OpenXLab 使用您在平台的用户名作为 Git的用户名，具体获取路径，可登录 OpenXLab 后，点击个人头像下的 【账号与安全】查看个人的用户名
+设置您的 Git 用户名，OpenXLab 使用你在平台的用户名作为 Git的用户名，具体获取路径，可登录 OpenXLab 后，点击个人头像下的 【账号与安全】查看个人的用户名
 
 ![upload_model_step1](./image/upload_model_step1.png)
 
 ![upload_model_step2](./image/upload_model_step2.png)
 
-配置 Git Username
+配置 Git Username，用于作为 Git 提交的身份标识。
 
 ```shell
 git config --global user.name "Username"
 ```
 
-> 需要将 Username 替换成你在OpenXL平台上的用户名
+> 需要将 Username 替换成你在 OpenXLab 平台上的用户名
 
+配置 Git Email
+
+```shell
+git config --global user.email "email@email.com"
+```
 
 &nbsp; 
 #### 2.2.2 拉取模型仓库
@@ -147,7 +157,7 @@ git config --global user.name "Username"
 git clone https://code.openxlab.org.cn//username/reponame.git
 ```
 
-> 需要将其中的 username 和 reponame 换成在模型中心中个人的 用户名 和 模型仓库的名称，例如 https://code.openxlab.org.cn/houshaowei/internlm-chat-7b.git
+> 需要将其中的 username 和 reponame 换成在 OpenXLab 模型中心中个人的 用户名 和 模型仓库的名称，例如 https://code.openxlab.org.cn/houshaowei/internlm-chat-7b.git
 
 
 &nbsp; 
@@ -163,13 +173,10 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 
 ![upload_model_step7](./image/upload_model_step7.png)
 
-添加完令牌后，记得复制生成的 Access Token，如下图所示
+添加完令牌后，记得复制生成的 Access Token，如下图所示，在后续上传模型文件，执行git push 命令时会需要填入 Username 和 Access Token 信息
 
 ![upload_model_step8](./image/upload_model_step8.png)
 
-在执行 git clone 时会弹出身份验证的弹窗，填入 Username 和 Token 信息，如图所示
-
-![img](./image/upload_model_step9.png)
 
 
 &nbsp; 
@@ -206,7 +213,7 @@ git clone https://code.openxlab.org.cn//username/reponame.git
 &nbsp; 
 在执行 `git push` 之前，如果您的仓库中包含大型文件，并且您希望使用 Git LFS 来管理这些文件，您需要先标记这些文件以便 Git LFS 能够识别它们。这通常是通过使用 `git lfs track` 命令来标记。以下是使用 `git lfs track` 命令的基本步骤：
 
-**跟踪文件**：使用 `git lfs track` 命令来标记你希望通过 Git LFS 管理的文件。例如，您想要跟踪所有的 `.bin`和` .model`的模型文件，可以使用以下命令：
+**LFS管理大文件**：使用 `git lfs track` 命令来标记你希望通过 Git LFS 管理的大文件。例如，您想要通过LFS管理所有的 `.bin`和` .model`的模型文件，可以使用以下命令：
 
 ```shell
 git lfs track "*.bin"
@@ -231,6 +238,9 @@ git push
 > 3. `git commit -m "upload model"`：创建一个新的提交，附带提交信息"upload model"。
 > 4. `git push`：将本地的提交推送到远程仓库。
 
+在执行 git push 时会弹出身份验证的弹窗，填入 Username 和 Access Token 信息，如图所示
+
+![img](./image/upload_model_step9.png)
 
 
 上传后的模型仓库可参考：https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b
@@ -327,18 +337,18 @@ InternLM is mainly developed by Shanghai AI Laboratory.
                  ).queue(1).launch()
 ```
 &nbsp; 
-> **应用代码注意事项** ：在 `app.py` 文件中，如需下载模型和了解文件存放路径
->
-> 1. **工作目录**：OpenXLab 应用代码默认存储的位置为 **`/home/xlab-app-center`**，如需指定存储路径，可用相对路径“./”表示，本示例采用相对路径方式
-> 2. **模型下载**：若需要在app.py中快速导入模型，可前往 模型中心上传模型权重后，通过平台提供的 git 方式进行下载，详情可参考 [应用如何导入模型中心的模型](/apps/应用创建流程.html#应用如何导入模型中心的模型)，模型上传的详细步骤可查看 [模型上传详细流程](/models/上传模型.html)
->
-> ```python
-> import os
-> # download internlm2 to the base_path directory using git tool
-> base_path = './internlm2-chat-7b'
-> os.system(f'git clone https://code.openxlab.org.cn/OpenLMLab/internlm2-chat-7b.git {base_path}')
-> os.system(f'cd {base_path} && git lfs pull')
-> ```
+ **应用代码注意事项** ：在 `app.py` 文件中，如需下载模型和了解文件存放路径
+
+ 1. **工作目录**：OpenXLab 应用代码默认存储的位置为 **`/home/xlab-app-center`**，如需指定存储路径，可用相对路径“./”表示，本示例采用相对路径方式
+ 2. **模型下载**：若需要在app.py中快速导入模型，可前往 模型中心上传模型权重后，通过平台提供的 git 方式进行下载，详情可参考 [应用如何导入模型中心的模型](https://openxlab.org.cn/docs/apps/%E5%BA%94%E7%94%A8%E5%88%9B%E5%BB%BA%E6%B5%81%E7%A8%8B.html#%E5%BA%94%E7%94%A8%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%BF%83%E7%9A%84%E6%A8%A1%E5%9E%8B)，模型上传的详细步骤可查看 [模型上传详细流程](https://openxlab.org.cn/docs/models/%E4%B8%8A%E4%BC%A0%E6%A8%A1%E5%9E%8B.html)
+
+ ```python
+ import os
+ # download internlm2 to the base_path directory using git tool
+ base_path = './internlm2-chat-7b'
+ os.system(f'git clone https://code.openxlab.org.cn/OpenLMLab/internlm2-chat-7b.git {base_path}')
+ os.system(f'cd {base_path} && git lfs pull')
+ ```
 
 
 &nbsp; 
